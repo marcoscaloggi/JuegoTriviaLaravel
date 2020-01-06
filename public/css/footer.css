@@ -1,0 +1,24 @@
+footer
+{
+  
+    padding: 1%;
+border-top: 1px solid orange;
+
+    background-image: linear-gradient(#0c0c0c, #700808);
+}
+.columna-footer h6{
+  color: darkorange;
+}
+
+.columna-footer a
+{
+    text-decoration: none;
+
+    color: white;
+}
+.columna-footer ul
+{
+    padding-left: 0;
+
+    list-style-type: none;
+}

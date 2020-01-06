@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.buttons-up-right{
+position: absolute;
+width: 20%;
+right: 3px;
+top: 3px;
+}
+.contenedor{
+    position: relative;
+}

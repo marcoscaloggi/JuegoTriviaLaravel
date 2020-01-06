@@ -1,0 +1,68 @@
+body{
+  min-height: 
+  100vh;
+}
+header {
+    width: 100%;
+    z-index: 1000;
+    height: 10vh;
+    padding: 0 1%;
+    top: 0;
+    position: fixed;
+    border-bottom: 1px solid orange;
+    background-image: linear-gradient(#0c0c0c, #700808);
+  }
+  
+  header > div {
+    display: flex;
+  }
+  
+  h1 {
+    font-family: "Fredoka One", cursive;
+  
+    margin: auto 0;
+    margin-bottom: auto;
+  
+    color: white;
+    text-shadow: 3px 1px #023f4b;
+  }
+  header > div > a {
+    display: inline-flex;
+  
+    text-decoration: none;
+  }
+  header > div > a:hover {
+    text-decoration: none;
+  }
+  .contenedor-logo {
+    margin-right: 1.5%;
+  }
+  header > div > a > img {
+    max-height: 150px;
+    margin: auto;
+    padding: 4%;
+  }
+  .top-10vh {
+    margin-top: 10vh;
+    width: 100%;
+    height: 0;
+  }
+  
+  .heredar_height {
+    height: inherit;
+  }
+  @media (max-width: 420px) {
+    header {
+      height: 6vh;
+    }
+  
+    .top-10vh {
+      margin-top: 6vh;
+    }
+  }
+  @media (max-width: 400px) {
+    header > div > a > h1 {
+      font-size: 1.8em;
+    }
+  }
+  

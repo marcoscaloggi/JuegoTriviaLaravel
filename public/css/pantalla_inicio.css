@@ -1,0 +1,335 @@
+
+
+
+.container-fluid
+{
+    overflow: hidden;
+
+    padding-right: 0;
+    padding-left: 0;
+min-width: 320px;
+    background-image: url(../imagenes/fondo-body.jpg);
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.contenedor-pantalla
+{
+    position: relative;
+min-height: 69vh;
+    display: flex;
+}
+
+.alert{
+    
+  padding: 0;
+  display: block;
+  margin: 1.2% auto;
+  color: #d61426;
+  font-weight: 500;
+  text-align: center;
+}
+/**************************** Inicio CSS HEADER ***********************************************/
+
+/**************************** Fin CSS HEADER ***********************************************/
+
+/**************************** Inicio CSS FOOTER ***********************************************/
+
+
+/**************************** Fin CSS FOOTER ***********************************************/
+/************ Inicio Boton cambio de article en version mobiles*************/
+.contenedor-btn-mobile
+{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    padding: 2%;
+
+    border-right: double;
+    border-bottom: double;
+    border-left: double;
+    border-radius: 0 0 100% 100%;
+    background-color: #ff146ba6;
+
+    align-items: center;
+}
+#cambioLoginRegistro
+{
+    /* font-weight: inherit; */
+    font-family: fredoka one;
+    font-size: 1.3em;
+
+    color: #130a9c;
+    border-color: #000;
+    border-radius: 3px 5px 5px 5px;
+    background-color: #ffffff99;
+    text-shadow: 2px 1px #a59c9c;
+}
+.circulo-1
+{
+    color: green;
+    border-radius: 50%;
+    border: 1px solid #060606;
+}
+.circulo-2
+{
+    color: grey;
+    border-radius: 50%;
+    border: 1px solid #060606;
+}
+/************ Fin Boton cambio de article en version mobiles *****/
+
+/**************************** Div que contiene al Login y Registro**************************/
+
+.contenedor-login-registro
+{
+    display: flex;
+
+    width: 100%;
+}
+
+
+/**************************** Fin Div que contiene al Login y Registro *********************/
+
+/**************************** inicio Login *********************/
+
+.article-login
+{
+    display: flex;
+
+    width: 50%;
+}
+.login-contenedor
+{
+    max-width: 90%;
+
+    margin: auto;
+    padding: 3% 3% 2%;
+
+    border: 1px solid black;
+    border-radius: 4%;
+    background-color: #5e30ae9c;
+    box-shadow: 1px 2px #000;
+}
+.login-contenedor h2
+{
+    font-size: 2em;
+
+    margin-bottom: 15%;
+
+    text-shadow: 1px 1px azure;
+}
+.login-contenedor > form
+{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+.login-input input
+{
+    width: 80%;
+}
+.login-recordar
+{
+    display: flex;
+
+    padding: 3% 0;
+
+    justify-content: center;
+    align-items: center;
+    ;
+}
+.login-recordar > label
+{
+    font-weight: 600;
+
+    margin-bottom: 0;
+    padding-left: 1%;
+}
+.btn-login
+{
+    margin-top: 6%;
+}
+h2
+{
+    text-align: center;
+}
+/**************************** Fin Login *********************/
+
+/**************************** inicio Registro *********************/
+
+.article-registro
+{
+    width: 50%;
+    padding-bottom: 1%;
+
+    border-left: 1.5px solid #540a9b;
+    background-image: linear-gradient(#b91471bf, #0c0c0c, #a01d73fa);
+}
+.contenedor-titulo-registro
+{
+    margin: 2% 0;
+
+    border-top: 1px solid white;
+    border-bottom: solid 1px white;
+    background-color: black;
+}
+.contenedor-titulo-registro > h2
+{
+    font-size: 2em;
+
+    color: deeppink;
+    text-shadow: pink 1px 1px;
+}
+.contenedor-form-registro
+{
+    width:80%;
+    margin: auto;
+}
+
+
+.input-contenedor
+{
+    font-size: 1.4em;
+
+    margin-top: 2.5%;
+    padding: 0 1%;
+
+    background-color: black;
+}
+.input-contenedor > i
+{
+    font-weight: 900;
+}
+.input-contenedor input
+{
+    padding: 2%;
+}
+.icono-medida
+{
+    width: 10%;
+
+    text-align: center;
+}
+
+.ancho-input-registro input
+{
+    width: 80%;
+}
+
+.aceptar-terminos
+{
+    text-align: center;
+}
+.aceptar-terminos > label > a:hover
+{
+    color: deeppink;
+}
+.text-blanco
+{
+    color: white;
+}
+.link
+{
+    font-weight: 600;
+
+    text-decoration-style: none;
+}
+.btn-Registro
+{
+    width: 27%;
+    margin: 0 auto;
+}
+.boton-formulario
+{
+    font-size: 1rem;
+
+    padding: 15px 0;
+
+    cursor: pointer;
+
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background: #1a2537;
+    background: #1a2537;
+}
+.boton-formulario:hover
+{
+    background: #d6527d;
+}
+.contenedor-btn-Registro
+{
+    display: flex;
+
+    width: 100%;
+}
+
+
+/**************************** Fin Registro *********************/
+
+/******************************inicio MEDIA QUERYS*****************************************/
+/* @media (max-width:1120px)
+{ */
+    /* Puntos a tener en cuenta */
+    /* - Achicar el font-size de los input tipo text 1em aprox.*/
+    /* .input-contenedor
+    {
+        font-size: 1em;
+    }
+} */
+@media (max-width:768px)
+{
+    /* - Los articulos de login y registro van a ocupar el 100% cada uno */
+    /* - mover el contenedor Login-registro de tal manera que el article registro quede oculto */
+    .input-contenedor
+    {
+        font-size: 1em;
+    }
+    .contenedor-login-registro
+    {
+        position: relative;
+/* DESPUES BORRAR ESTO */
+        /* left: -100%; */
+/********************** */
+
+    }
+    .article-login
+    {
+        min-width: 100%;
+    }
+    .article-registro
+    {
+        min-width: 100%;
+    }
+    .article-registro form{
+      padding-top: 4%;
+    }
+
+    .contenedor-btn-mobile
+    {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+}
+
+@media (max-width:602px) {
+.contenedor-titulo-registro>h2{
+  text-align: left;
+  padding-left: 2%;
+}
+.contenedor-form-registro{
+  margin: 0 0 0 2%;
+  padding-top: 4%;
+}
+}
