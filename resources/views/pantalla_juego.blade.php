@@ -70,7 +70,7 @@
             </div>
         </article>
         <a
-            src="{{ route('volver') }}"
+            href="{{ route('volver') }}"
             class="btn btn-danger btn-volver btn-lg"
             style="margin: 0.8em"
             >Exit</a
@@ -78,7 +78,7 @@
       </div>
     </section>
 
-    <section class="pantalla-preguntas">
+    <section id=pantalla-preguntas class="pantalla-preguntas">
       <div class="categoriaPregunta">
         <h3>Nombre Categoria de la pregunta y el color</h3></div>
         <div class="contenedor-temporizador">  
@@ -92,10 +92,10 @@
             <p class="pregunta" id=pregunta>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore error nisi aperiam itaque ratione quasi in officiis culpa recusandae, harum ut magnam eius sequi velit similique quia doloribus facilis voluptate.</p>
         </div>
             <div id=respuestas class="contenedorRespuestas">
-                <button class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta1">Respuesta 1</button>
-                <button class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta2">Respuesta 2</button>
-                <button class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta3">Respuesta 3</button>
-                <button class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta4">Respuesta 4</button>
+                <button type="button" class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta1">Respuesta 1</button>
+                <button type="button" class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta2">Respuesta 2</button>
+                <button type="button" class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta3">Respuesta 3</button type="button">
+                <button type="button" class="my-2 respuesta btn btn-light btn-outline-info" id="respuesta4">Respuesta 4</button>
             </div>
         
     </section>

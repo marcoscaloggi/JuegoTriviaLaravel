@@ -5,6 +5,7 @@
   }
   .contenedor {
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .contenedor-pantallas{
     position: relative;

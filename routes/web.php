@@ -18,6 +18,8 @@ Route::post('/perfil/admin/back', 'AdminController@back')->name('admin.volver');
 
 Route::post('/partida/buscar/pregunta', 'PantallaJuegoAjaxController@asignarPregunta')->name('juego.ajax.asignarPregunta');
 
+Route::post("/partida/buscar/categoriaPregunta", 'PantallaJuegoAjaxController@buscarCategoriaPregunta')->name('juego.ajax.buscar.categoria');
+Route::post("/partida/actualizar", 'PantallaJuegoAjaxController@ActualizarPartida')->name('juego.ajax.actualizar');
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('/', 'Auth\LoginController@login');
