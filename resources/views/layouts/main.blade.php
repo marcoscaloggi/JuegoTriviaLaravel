@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" style="position:relative">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo_pagina')</title>
 
@@ -30,7 +30,7 @@
     @yield('links')
 </head>
 <body>
-    <div class= @yield('nombre_contenedor')>
+    <div class= @yield('nombre_contenedor') id= @yield('id_contenedor') style="overflow-x:hidden; min-height: 100vh; flex-direction: column; display: flex;">
     
         <header>
             <div class="heredar_height">

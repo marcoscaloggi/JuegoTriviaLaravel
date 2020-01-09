@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Categoria;
 use App\Partida;
 
+
 class PerfilController extends Controller
 {
     public function __construct()
@@ -17,6 +18,16 @@ class PerfilController extends Controller
     public function index()
     {
         $user = Auth::user();
+
+        $jsonUser =[
+            'id' => $user->id,
+            'name'=> $user->name,
+            'surname'=> $user->surname,
+            'email'=> $user->email,
+            'username'=> $user->username
+        ];
+        $jsonUser= json_encode($jsonUser);
+       
 
         $categoriasJugables =
             DB::select('SELECT categorias.id, categorias.nombre,categorias.color,categorias.fija
@@ -42,7 +53,7 @@ class PerfilController extends Controller
 
 
 
-        $datos = compact('user', 'categoriasJugables', 'puntajes');
+        $datos = compact('user', 'categoriasJugables', 'puntajes','jsonUser');
 
         return view('pantalla_perfil', $datos);
     }

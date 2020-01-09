@@ -1,178 +1,14 @@
-var posicion_categ;
-var cant_categ;
-var categorias;
-
-function inicioPag() {
-    var usuario = document.querySelector("#data").dataset.user;
-    var pais = document.querySelector("#pais").innerText;
-    var provincia = document.querySelector("#provincia").innerText;
-    console.log(provincia);
-
-    usuario = JSON.parse(usuario);
-    console.log(usuario);
-
-    document
-        .querySelector("#cerrarEdicion")
-        .addEventListener("click", function() {
-            document
-                .querySelector("#editarUser")
-                .setAttribute("class", "editar-user d-none");
-        });
-    listaCategorias();
-    document
-        .getElementById("flecha_avanzar")
-        .addEventListener("click", flechaAvanzar);
-    document
-        .getElementById("flecha_retroceder")
-        .addEventListener("click", flechaRetroceder);
-    document
-        .getElementById("modificarUser")
-        .addEventListener("click", modificarUser);
-    $("#inputimg").change(cambiarFoto);
-
-    function modificarUser() {}
-
-    function listaCategorias() {
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-            }
-        });
-
-        $.ajax({
-            type: "POST",
-            url: "/ajax/listaCategorias",
-            success: function(data) {
-                cant_categ = data.length - 1;
-                categorias = data;
-                posicion_categ = 0;
-
-                asignarCategoria(
-                    categorias[posicion_categ]["nombre"],
-                    categorias[posicion_categ]["color"],
-                    categorias[posicion_categ]["id"]
-                );
-            }
-        });
-    }
-
-    function flechaAvanzar() {
-        if (posicion_categ < cant_categ) {
-            posicion_categ++;
-            asignarCategoria(
-                categorias[posicion_categ]["nombre"],
-                categorias[posicion_categ]["color"],
-                categorias[posicion_categ]["id"]
-            );
-        } else {
-            posicion_categ = 0;
-            asignarCategoria(
-                categorias[posicion_categ]["nombre"],
-                categorias[posicion_categ]["color"],
-                categorias[posicion_categ]["id"]
-            );
-        }
-    }
-    function flechaRetroceder() {
-        if (posicion_categ > 0) {
-            posicion_categ--;
-            asignarCategoria(
-                categorias[posicion_categ]["nombre"],
-                categorias[posicion_categ]["color"],
-                categorias[posicion_categ]["id"]
-            );
-        } else {
-            posicion_categ = cant_categ;
-            asignarCategoria(
-                categorias[posicion_categ]["nombre"],
-                categorias[posicion_categ]["color"],
-                categorias[posicion_categ]["id"]
-            );
-        }
-    }
-    function cambiarFoto() {
-        var campo = $("#inputimg").val().length;
-
-        if (campo > 1) {
-            var formData = new FormData();
-            var files = $("#inputimg")[0].files[0];
-            formData.append("imagen", files);
-
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                }
-            });
-
-            $.ajax({
-                type: "post",
-                data: formData,
-                url: "/Ajax/CambiarFoto",
-                processData: false,
-                contentType: false,
-
-                success: function(response) {
-                    console.log(response);
-
-                    $(".img-usuario").attr("src", "/storage/" + response);
-                }
-            });
-        }
-    }
-    function asignarCategoria(nombre, color, id) {
-        document.getElementById("nombre_categoria").innerHTML = nombre;
-
-        document.getElementById("categoria_tabla").style.background = color;
-        console.log("nombre: " + nombre + " color: " + color + " id: " + id);
-        document.getElementById("body_tabla_ranking").innerHTML = "";
-        cargarRankig(id);
-    }
-    function cargarRankig(id) {
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-            }
-        });
-
-        $.ajax({
-            type: "POST",
-            data: { id: id },
-            url: "/ajax/RankingCategorias",
-            success: function(data) {
-                console.log(data);
-
-                data.forEach(function(elemento, index, array) {
-                    let pos = index + 1;
-                    document
-                        .getElementById("body_tabla_ranking")
-                        .insertAdjacentHTML(
-                            "beforeend",
-                            "<tr><th>" +
-                                pos +
-                                "</th>" +
-                                "<th>" +
-                                elemento["username"] +
-                                "</th>" +
-                                "<th>" +
-                                elemento["puntos"] +
-                                "</th></tr>"
-                        );
-                });
-            }
-        });
-    }
-
+window.onload = function() {
     let formulario = document.forms[0];
 
     let inputs = formulario.elements;
-console.log(inputs);
 
     let inputNombre = inputs[1];
     let inputApellido = inputs[2];
     let inputEmail = inputs[3];
     let inputUserName = inputs[4];
-    let inputContra = inputs[6];
-    let inputConContra = inputs[7];
+    let inputContra = inputs[5];
+    let inputConContra = inputs[6];
 
     let selectPais = document.getElementById("pais");
     let divProvincia = document.getElementById("provincias");
@@ -282,7 +118,7 @@ console.log(inputs);
 
     inputConContra.onchange = function() {
         if (
-            inputConContra.value.length < 8 ||
+            inputConContra.value.length <8 ||
             inputConContra.value != inputContra.value
         ) {
             inputConContra.setAttribute("class", "form-control is-invalid");
@@ -307,8 +143,11 @@ console.log(inputs);
                 return respuesta.json();
             })
             .then(function(data) {
+             
+
                 // selectProvincia.innerHTML = "<option>Seleccionar</option>";
                 for (pais of data) {
+                   
                     var optionPais = document.createElement("option");
                     var textoPais = document.createTextNode(pais.name);
                     optionPais.appendChild(textoPais);
@@ -355,7 +194,7 @@ console.log(inputs);
                 for (provincia of data.provincias) {
                     var optionProvincia = document.createElement("option");
                     optionProvincia.value = provincia.nombre;
-                    optionProvincia.name = provincia;
+                    optionProvincia.name=provincia;
                     optionProvincia.innerHTML = provincia.nombre;
                     selectProvincias.appendChild(optionProvincia);
                 }
@@ -365,18 +204,18 @@ console.log(inputs);
     selectPais.addEventListener("change", function() {
         var selectProvincias = document.getElementById("selectProvincias");
         if (divProvincia.firstChild) {
-            var padre = divProvincia.parentNode;
-            //  console.log(divProvincia.firstChild);
-            console.log(padre.firstChild);
+   var padre = divProvincia.parentNode;    
+        //  console.log(divProvincia.firstChild);
+    console.log(padre.firstChild);
             selectProvincias.remove();
-
+            
             padre.firstChild.remove();
+        
+            
         }
         let codigoPais = paisSelecc();
         if (codigoPais == "Argentina") {
             mostrarProvincias(provinciaSeleccionada);
         }
     });
-}
-
-document.addEventListener("DOMContentLoaded", inicioPag);
+};

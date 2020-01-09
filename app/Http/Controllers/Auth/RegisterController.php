@@ -65,6 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+            isset($data['selectProvincias'])?$prov=$data['selectProvincias']: $prov=null;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -73,8 +75,10 @@ class RegisterController extends Controller
             'surname'=> $data['surname'],
             'tipo'=> 'jugador',
             'experiencia'=> 0,
-            'foto_perfil'=> 'img-usuario.jpg',
-            'level'=> 1
+            'foto_perfil'=> 'imagen-usuario.png',
+            'level'=> 1,
+            'pais'=> $data['pais'],
+            'provincia'=>$prov
         ]);
     }
 }

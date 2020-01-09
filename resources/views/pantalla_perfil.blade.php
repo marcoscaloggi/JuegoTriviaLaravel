@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('titulo_pagina')Perfil - {{$user->username}}@endsection
 @section('links')
+
 <link rel="stylesheet" href="/css/pantalla_perfil.css">
 <script type="text/javascript" src="/js/pantalla_perfil.js"></script>
 
@@ -8,8 +9,129 @@
 @endsection
 @section('nombre_contenedor')contenedor @endsection
 @section('contenido')
+<div class="editar-user" id=editarUser>
+  <div class="row justify-content-center w-100">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">{{ __('Editar Usuario') }}</div>
 
-    <div class="header">
+            <div class="card-body">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <p id=errorNomb></p>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="surname" class="col-md-4 col-form-label text-md-right">Apellido</label>
+
+                        <div class="col-md-6">
+                            <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                            <p id="errorAp"></p>
+                            @error('surname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <p id="errorEm"></p>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="username" class="col-md-4 col-form-label text-md-right">Nombre de Usuario</label>
+
+                        <div class="col-md-6">
+                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                            <p id="errorUserName"></p>
+                            @error('username')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="oldPassword" class="col-md-4 col-form-label text-md-right">contraseña actual</label>
+
+                      <div class="col-md-6">
+                          <input id="oldPassword" type="oldPassword" class="form-control" name="oldPassword" required >
+                          <p id="errorOldPassword"></p>
+                       
+                      </div>
+                  </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">contraseña nueva</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password" name="password" class="form-control" required>
+                            <p id="errorCon"></p>
+                           
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmar contraseña</label>
+
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <p id="errorConCon"></p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pais" class="col-md-4 col-form-label text-md-right">País</label>
+
+                        <div class="col-md-6">
+                            <select id="pais" class="form-control" name="pais"><select>
+                        </div>
+                    </div>
+                    <div class="form-group row"><div class="col-md-6" id=provincias></div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                               Guardar
+                            </button> 
+                            <button id=cerrarEdicion type="button" class="btn btn-danger">Cancelar
+                          </button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  
+</div>
+<span id=provincia style="display:none">{{$user->provincia}}</span>
+<span id=pais style="display:none">{{$user->pais}}</span>
+<div class="header"  id=data  data-user= {{$jsonUser}}>
       <input type="checkbox" id=btn-menu name="" value="">
       <label for="btn-menu" class="icon-menu"></label>
       <nav class="navegacion">
@@ -36,7 +158,7 @@
                 </ul>
           </li>
           <li class="botones-nav">
-            <button type="button" class="config"><img class="config-icon" src="/imagenes/config.png"></button>
+            <button type="button" id="modificarUser" class="config"><img class="config-icon" src="/imagenes/config.png"></button>
           <form style="display: contents" action="{{route('Ajax.logout')}}" method="post">
               @csrf
                <button id=logout type="submit" class="cerrarsesion"><img src="/imagenes/salida.png" class="puerta-icon"></button>
