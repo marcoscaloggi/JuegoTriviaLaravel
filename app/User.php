@@ -39,5 +39,9 @@ class User extends Authenticatable
     public function partidas(){
         return $this->hasMany("App\Partida","usuario_id");
     }
+    public function getDateFormat()
+{
+     return 'Y-m-d H:i:s.u';
+}
 
 }

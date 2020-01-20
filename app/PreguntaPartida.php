@@ -10,4 +10,9 @@ class PreguntaPartida extends Model
     // public $primaryKey = "id";
     // public $timestamps = true;
     public $guarded = [];
+
+    public function getDateFormat()
+    {
+         return 'Y-m-d H:i:s.u';
+    }
 }

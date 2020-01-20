@@ -1,6 +1,6 @@
 @extends('layouts.main') @section('titulo_pagina') Pantalla Juego @endsection
 @section('links')
-
+@routes
 <link rel="stylesheet" href="/css/pantalla_juego.css" />
 <script src="/js/pantalla_juego.js"></script>
 <script src="/js/TweenMax.min.js"></script>

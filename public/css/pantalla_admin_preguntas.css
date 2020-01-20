@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+#tablaUsuarioFetch{
+    position: relative;
+}
+#tablaUsuarioFetch >h2{
+    width: 50%;
+    display: inline-block;
+}
+#crearPregunta{
+    position: absolute;
+    right: 3vw;
+}
+#crear-pregunta{
+    width: 60%;
+    margin: auto;
+    border-radius: 14px;
+    border: 2px solid violet;
+    background-color: black;
+    color: pink;
+    font-size: 1.3em;
+    display: none;
+    
+}
+#crear-pregunta>div>h3{
+    background: #8a2be275;
+    border-radius: 23px;
+}
+#crear-categoria{
+    width: 50%;
+    margin: auto;
+    background: slateblue;
+    border: 1 px double blue;
+    border-radius: 45px;
+}
+.buttons-up-right{
+position: absolute;
+width: 20%;
+right: 3px;
+top: 3px;
+}
+.tabla-cuerpo td{
+    padding: 0.5em;
+}
+.contenedor{
+    position: relative;
+}
+#tablaCategorias{
+    position: relative;
+}
+#tablaCategorias>H2{
+    display: inline-block;
+    width: 50%;
+
+}
+#crearCategoria{
+    position: absolute;
+    right: 3vw;
+}
+.contenedor-tabla{
+    width: 98vw;
+    max-height: 80vh;
+    overflow-x: scroll;
+    margin-bottom: 1em;
+}
+
+.contenedor{
+    background: grey;
+}
+
+.botones{
+    border-bottom: 3px double black;
+}
+

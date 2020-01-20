@@ -40,6 +40,7 @@ header {
   header > div > a > img {
     max-height: 150px;
     margin: auto;
+    border-radius: 86%;
     padding: 4%;
   }
   .top-10vh {

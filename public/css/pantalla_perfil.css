@@ -41,6 +41,13 @@
     background-color: #c82333;
     border-color: #bd2130;
   }
+  .botonAdmin{
+    background-color:rgb(104, 12, 128);
+    border-color:rgb(104, 12, 128);
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-out;
+    position: relative;
+  }
   .config-icon {
     width: 100%;
   }
@@ -199,7 +206,7 @@
     width: 100%;
   }
   .botones-nav {
-    width: 10%;
+    width: 15%;
   }
   .navegacion {
     padding: 0 20px;
@@ -395,6 +402,10 @@
   
   @media (max-width: 768px) {
     /* BARRA DE NAVEGACION RESPONSIVE */
+    .puerta-icon {
+      width: 10%;
+  }
+
     nav.navegacion > .barra-responsive {
       background-color: #000000e6;
       padding-bottom: 10px;

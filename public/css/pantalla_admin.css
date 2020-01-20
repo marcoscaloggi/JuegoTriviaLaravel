@@ -3,12 +3,43 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    overflow-x: hidden;
+}
 .buttons-up-right{
 position: absolute;
 width: 20%;
 right: 3px;
 top: 3px;
 }
+.tabla-cuerpo td{
+    padding: 0.5em;
+}
 .contenedor{
     position: relative;
 }
+
+.contenedor-tabla{
+    width: 98vw;
+    max-height: 80vh;
+    overflow-x: scroll;
+    margin-bottom: 1em;
+}
+
+.contenedor{
+    background: grey;
+}
+
+.botones{
+    border-bottom: 3px double black;
+}
+
+.editar-user{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.418);
+    z-index: 3000;
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }

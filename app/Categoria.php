@@ -18,5 +18,9 @@ public function partidas(){
 public function preguntas(){
     return $this-> hasMany("App/Pregunta","categoria_id");
 }
+public function getDateFormat()
+{
+     return 'Y-m-d H:i:s.u';
+}
 }
 

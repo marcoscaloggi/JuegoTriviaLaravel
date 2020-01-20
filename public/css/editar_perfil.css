@@ -1,0 +1,7 @@
+.buttons-up-right{
+    position: absolute;
+    width: 18%;
+    right: 3px;
+    top: 3px;
+    z-index: 2;
+    }

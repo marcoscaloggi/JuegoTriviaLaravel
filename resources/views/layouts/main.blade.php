@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/css/sweetalert2.css">
 
     
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="meta"name="csrf-token" content="{{ csrf_token() }}">
     
     @yield('links')
 </head>
@@ -34,11 +34,11 @@
     
         <header>
             <div class="heredar_height">
-                <a href="" class="heredar_height contenedor-logo">
-                  <img src="/imagenes/logo-juego.png" alt="" class="heredar_height">
+                <a class="heredar_height contenedor-logo">
+                  <img src="/imagenes/cerebro.jpg" alt="" class="heredar_height">
                 </a>
-                <a href="">
-                  <h1 style= "margin: auto 0" > JuegoTrivia.com </h1>
+                <a >
+                  <h1 style= "margin: auto 0" > Descerebrados.com </h1>
                 </a>
           </div>
           </header>
@@ -54,22 +54,22 @@
                   </h6>
                   <ul>
                     <li>
-                      <a href="/condiciones-de-uso">Condiciones de uso</a>
+                      <a href="">Condiciones de uso</a>
                     </li>
                     <li>
-                      <a href="/politica-de-privacidad">Política de Privacidad</a>
+                      <a href="">Política de Privacidad</a>
                     </li>
                     <li>
-                      <a href="/privacy-policy-kids">Política de privacid...</a>
+                      <a href="">Política de privacid...</a>
                     </li>
                     <li>
-                      <a href="/informacion-padres">Información para los padres</a>
+                      <a href="">Información para los padres</a>
                     </li>
                     <li>
-                      <a href="/cookie-policy">Cookies</a>
+                      <a href="">Cookies</a>
                     </li>
                     <li>
-                      <a href="#" id="consent-link">Consentimiento de cookies</a>
+                      <a href="" id="consent-link">Consentimiento de cookies</a>
                     </li>
                     <li>
                       <a href="">Sobre nosotros</a>
@@ -85,7 +85,7 @@
                       <a href="">Anúnciate con nosotros</a>
                     </li>
                     <li>
-                      <a href="" >Enviar un juego</a>
+                      <a href="">Enviar un juego</a>
                     </li>
                   </ul>
                 </article>

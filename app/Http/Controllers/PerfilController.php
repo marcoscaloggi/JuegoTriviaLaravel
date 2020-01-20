@@ -27,7 +27,11 @@ class PerfilController extends Controller
             'username'=> $user->username
         ];
         $jsonUser= json_encode($jsonUser);
-       
+        $json="";
+       for ($i=0; $i <strlen($jsonUser) ; $i++) { 
+        $c =substr($jsonUser, $i, 1);
+        if($c==" "){$json=$json."+";}else{$json=$json.$c;}
+       }
 
         $categoriasJugables =
             DB::select('SELECT categorias.id, categorias.nombre,categorias.color,categorias.fija
@@ -53,7 +57,7 @@ class PerfilController extends Controller
 
 
 
-        $datos = compact('user', 'categoriasJugables', 'puntajes','jsonUser');
+        $datos = compact('user', 'categoriasJugables', 'puntajes','json');
 
         return view('pantalla_perfil', $datos);
     }
@@ -69,12 +73,12 @@ class PerfilController extends Controller
 
         $nuevaPartida->save();
 
-        return redirect()->route('pantallajuego', ['PartidaId' => $nuevaPartida->id]);
+        return redirect()->route('pantallajuego', ['PartidaId' => $nuevaPartida->id,'user'=>$user]);
     }
     
     public function cargarPartida($PartidaId)
     {
-
-        return redirect()->route('pantallajuego', ['PartidaId' => $PartidaId]);
+        $user = Auth()->user()->id;
+        return redirect()->route('pantallajuego', ['PartidaId' => $PartidaId,'user'=>$user]);
     }
 }

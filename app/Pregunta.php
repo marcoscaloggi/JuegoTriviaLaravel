@@ -20,4 +20,8 @@ class Pregunta extends Model
     public function partidas(){
         return $this->belongsToMany("App/partida","pregunta_partida","pregunta_id","partida_id");
     }
+    public function getDateFormat()
+    {
+         return 'Y-m-d H:i:s.u';
+    }
 }

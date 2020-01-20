@@ -21,4 +21,8 @@ public function preguntas(){
 public function usuario(){
     return $this->belongsTo("App\User","usuario_id");
 }
+public function getDateFormat()
+{
+     return 'Y-m-d H:i:s.u';
+}
 }

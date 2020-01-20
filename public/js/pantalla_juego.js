@@ -306,13 +306,17 @@ function resetearEstiloRespuestas() {
         document.querySelector("div.contenedor-level > SPAN").innerHTML=puntos+" Pts";
     }
     function actualizarVidas() {
-listaCorazones=document.querySelectorAll(".corazones > IMG");
+var listaCorazones=document.querySelectorAll(".corazones > IMG");
+console.log(listaCorazones);
+
 vidas--;
 
 if(vidas>=0){
 for (let i = 0; i < 3; i++) {
-    if((listaCorazones[i]+1) > vidas){
-        listaCorazones[i].setAtrribute("src","/imagenes/corazon-gris.png");
+    if(i >= vidas){
+
+        listaCorazones[i].setAttribute("src","/imagenes/corazon-gris.png");
+        
     }
     
 }
@@ -324,24 +328,31 @@ function actualizarPartidaDB(){
     console.log("vidas: " + vidas);
     console.log("puntos: " + puntos);
     
+   
     
-    $.ajaxSetup({
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-        }
-    });
+        let token = document.querySelector("#meta").getAttribute('content');
+        var formulario = new FormData();
+        formulario.append("partidaId",partidaId);
+        formulario.append("vidas",vidas);
+        formulario.append("puntos",puntos);
 
+        
+        fetch(route("juego.ajax.actualizar"),{
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": token
+               },
 
-    $.ajax({
-        type: "POST",
-        data: { partidaId: partidaId,vidas:vidas,puntos:puntos },
-        url: "/partida/actualizar",
-        success: function(data) {
-            console.log(data);
-          
-        }
-    });
-
+            method: "POST",
+            body: formulario
+        })
+            .then(res => res.json())
+            .then(data=>{
+              console.log(data);
+                
+            })
+    
+    
 
     if(vidas<0){
     swal.fire({
@@ -352,7 +363,7 @@ function actualizarPartidaDB(){
         confirmButtonText: "Ok"
     }).then(result => {
         if (result.value) {
-            window.locationf="http://127.0.0.1:8000/perfil";
+            location.href=route('home');
         }
      
        

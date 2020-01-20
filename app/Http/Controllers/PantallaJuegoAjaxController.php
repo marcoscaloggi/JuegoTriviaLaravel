@@ -70,7 +70,7 @@ return $categoria;
      $partida->puntos = $puntos;
 
     $partida->save();
-    return "SAVE";
+    echo json_encode("SAVE");
 
   }
 }
